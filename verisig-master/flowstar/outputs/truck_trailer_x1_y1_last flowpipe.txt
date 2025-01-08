@@ -1,0 +1,120 @@
+Dealing with the jump from DNN1 to environmentD ...
+jumps = 298
+branch id: 1
+_f1 bounds after reset: [ 0.2650074546,  0.2682845217]
+_f1 remainder after reset: [-0.0000000291,  0.0000000236]
+_f2 bounds after reset: [-0.0762179164, -0.0718961357]
+_f2 remainder after reset: [-0.0000000627,  0.0000000390]
+_f3 bounds after reset: [ 0.1650662781,  0.1688011986]
+_f3 remainder after reset: [-0.0000000208,  0.0000000222]
+_f4 bounds after reset: [-0.0000000000,  0.0000000000]
+_f4 remainder after reset: [-0.0000000000,  0.0000000000]
+clockD bounds after reset: [ 0.0000000000,  0.0000000000]
+clockD remainder after reset: [ 0.0000000000,  0.0000000000]
+v0 bounds after reset: [ 0.2650074546,  0.2682845217]
+v0 remainder after reset: [-0.0000000291,  0.0000000236]
+dtheta0 bounds after reset: [-0.0762179164, -0.0718961357]
+dtheta0 remainder after reset: [-0.0000000627,  0.0000000390]
+x1 bounds after reset: [-0.1591051605, -0.1572547552]
+x1 remainder after reset: [-0.0000000000,  0.0000000000]
+y1 bounds after reset: [ 1.3387803608,  1.3411184546]
+y1 remainder after reset: [-0.0000000000,  0.0000000000]
+theta0 bounds after reset: [ 1.5150579775,  1.5183412220]
+theta0 remainder after reset: [-0.0000000000,  0.0000000000]
+theta1 bounds after reset: [ 1.6065324139,  1.6162045169]
+theta1 remainder after reset: [-0.0000000000,  0.0000000000]
+clockG bounds after reset: [ 7.3999435425,  7.4001136780]
+clockG remainder after reset: [-0.0000003815,  0.0000003815]
+dtheta1 bounds after reset: [-0.0000000000,  0.0000000000]
+dtheta1 remainder after reset: [-0.0000000000,  0.0000000000]
+v1 bounds after reset: [ 0.1650662781,  0.1688011986]
+v1 remainder after reset: [-0.0000000208,  0.0000000222]
+beta01 bounds after reset: [-0.1011465394, -0.0881911919]
+beta01 remainder after reset: [-0.0000000000,  0.0000000000]
+clock bounds after reset: [-0.0000000000,  0.0000007629]
+clock remainder after reset: [-0.0000003815,  0.0000003815]
+Done.
+T::nonpoly taylor case
+T::uniform case
+T::reach_continuous_non_polynomial_taylor adaptive step sizes and fixed orders 1mode: environmentD,	time = 0.100000,	step = 0.100000,	order = 3
+mode: environmentD,	time = 0.100001,	step = 0.000001,	order = 3
+T:::299
+T::: flowpipes size: 299
+T::: domains size:   299
+T::: last flowpipe size: 1
+T::: last domain size: 1
+custom output: from: environmentD, to: initD, jumps execuded: 299, branch id: 1, jump id: 4 
+Dealing with the jump from environmentD to initD ...
+jumps = 299
+branch id: 1
+Entered a case that is not supported by Verisig (multiple intersected flowpipes).
+
+Initial conditions:
+[0.000000, 0.000000]
+[0.250000, 0.250000]
+intersected flowpipes = 2
+_f1 bounds after reset: [ 0.2650074546,  0.2682845217]
+_f1 remainder after reset: [ 0.0000000000,  0.0000000000]
+_f2 bounds after reset: [-0.0762179164, -0.0718961357]
+_f2 remainder after reset: [ 0.0000000000,  0.0000000000]
+_f3 bounds after reset: [ 0.1650662781,  0.1688011986]
+_f3 remainder after reset: [ 0.0000000000,  0.0000000000]
+_f4 bounds after reset: [ 0.0000000000,  0.0000000000]
+_f4 remainder after reset: [ 0.0000000000,  0.0000000000]
+clockD bounds after reset: [ 0.0000000000,  0.0000000000]
+clockD remainder after reset: [ 0.0000000000,  0.0000000000]
+v0 bounds after reset: [ 0.2650074546,  0.2682845217]
+v0 remainder after reset: [ 0.0000000000,  0.0000000000]
+dtheta0 bounds after reset: [-0.0762179164, -0.0718961357]
+dtheta0 remainder after reset: [ 0.0000000000,  0.0000000000]
+x1 bounds after reset: [-0.1598260898, -0.1577888580]
+x1 remainder after reset: [ 0.0000000000,  0.0000000000]
+y1 bounds after reset: [ 1.3552776750,  1.3579841130]
+y1 remainder after reset: [ 0.0000000000,  0.0000000000]
+theta0 bounds after reset: [ 1.5074359521,  1.5111517841]
+theta0 remainder after reset: [ 0.0000000000,  0.0000000000]
+theta1 bounds after reset: [ 1.6000615873,  1.6107868232]
+theta1 remainder after reset: [ 0.0000000000,  0.0000000000]
+clockG bounds after reset: [ 7.4999427795,  7.5001144409]
+clockG remainder after reset: [ 0.0000000000,  0.0000000000]
+dtheta1 bounds after reset: [ 0.0000000000,  0.0000000000]
+dtheta1 remainder after reset: [ 0.0000000000,  0.0000000000]
+v1 bounds after reset: [ 0.1650662781,  0.1688011986]
+v1 remainder after reset: [ 0.0000000000,  0.0000000000]
+beta01 bounds after reset: [-0.1011465394, -0.0881911919]
+beta01 remainder after reset: [ 0.0000000000,  0.0000000000]
+clock bounds after reset: [-0.0000000000,  0.0000007629]
+clock remainder after reset: [ 0.0000000000,  0.0000000000]
+Done.
+T::nonpoly taylor case
+T::uniform case
+T::reach_continuous_non_polynomial_taylor adaptive step sizes and fixed orders 1mode: initD,	time = 0.000001,	step = 0.000001,	order = 3
+T:::300
+T::: flowpipes size: 300
+T::: domains size:   300
+T::: last flowpipe size: 2
+T::: last domain size: 2
+Maximum jump depth is reached.
+
+Computation completed: 376 flowpipe(s) computed.
+Time cost of flowpipe construction: 8722.342163 seconds.
+
+Preparing for plotting and dumping...
+%100
+Done.
+Generating the plotting file...
+%100
+Done.
+Writing the flowpipe(s)...
+------- CUSTOM OUTPUT -------
+length of flowpipes: 301
+length of each flowpipe:1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 
+Done.
+total branches: 1
+dnn runtime: 10278.609375
+
+Initial conditions:
+[0.000000, 0.000000]
+[0.250000, 0.250000]
+ramesh@ramesh-VirtualBox:~/HSCC/verisig-master/flowstar$ 
+

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex version="0.2" math="SpaceEx">
+  <component id="D">
+    <param name="clockD" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="_f1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="_f2" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="_f3" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="_f4" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="v0" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="dtheta0" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="y1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="theta0" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="theta1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="clock" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="clockG" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="dtheta1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="v1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="beta01" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="L1" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <param name="M0" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <location id="1" name="initD" x="435.0" y="143.0" width="150.0" height="182.0">
+      <invariant>clockD &lt;= 0</invariant>
+      <flow>clockD'== 1&amp;
+x1' == 0&amp;
+y1' == 0&amp;
+theta0' == 0&amp;
+theta1' == 0&amp;
+clockG' == 1&amp;
+v0' == 0 &amp;
+dtheta0' == 0</flow>
+    </location>
+    <location id="2" name="DNN1" x="751.0" y="144.0" width="146.0" height="170.0">
+      <flow>clockD'== 1&amp;
+x1' == 0&amp;
+y1' == 0&amp;
+theta0' == 0&amp;
+theta1' == 0&amp;
+clockG' == 1&amp;
+v0' == 0 &amp;
+dtheta0' == 0</flow>
+    </location>
+    <location id="3" name="environmentD" x="750.0" y="424.0" width="364.0" height="220.0">
+      <invariant>clockD &lt;= 0.1</invariant>
+      <flow>clockD' == 1 &amp;
+x1' == v1* cos(theta1) &amp;
+y1' == v1* sin(theta1) &amp;
+theta1' == v0/L1*sin(beta01) - M0/L1*cos(beta01)*dtheta0 &amp;
+theta0' == dtheta0 &amp;
+clockG' == 1 &amp;
+v0' == 0&amp;
+dtheta0' == 0</flow>
+    </location>
+    <transition source="1" target="2">
+      <guard>clockD==0.0</guard>
+      <assignment>clockD := 0.0&amp;
+_f1 := x1&amp;
+_f2 := y1&amp;
+_f3 := theta0&amp;
+_f4 := theta1</assignment>
+      <labelposition x="-62.0" y="-98.0" width="134.0" height="170.0" />
+    </transition>
+    <transition source="2" target="3">
+      <guard>clockD==0.0</guard>
+      <assignment>clockD:= 0.0&amp;
+v0:= _f1&amp;
+dtheta0:= _f2&amp;
+beta01:=theta0 - theta1 &amp;
+v1:= _f3</assignment>
+      <labelposition x="7.0" y="-111.0" width="378.0" height="136.0" />
+    </transition>
+    <transition source="3" target="1">
+      <guard>clockD== 0.1</guard>
+      <assignment>clockD:=0.0</assignment>
+      <labelposition x="-116.0" y="-46.0" width="108.0" height="80.0" />
+    </transition>
+  </component>
+  <component id="A">
+    <param name="clockD" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="_f1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="_f2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="_f3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="_f4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="v0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="dtheta0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="y1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="theta0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="theta1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="clock" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="clockG" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="dtheta1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="v1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="beta01" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="L1" type="real" local="false" d1="1" d2="1" dynamics="const" controlled="true" />
+    <param name="M0" type="real" local="false" d1="1" d2="1" dynamics="const" controlled="true" />
+    <bind component="D" as="D_1" x="805.0" y="204.0">
+      <map key="clockD">clockD</map>
+      <map key="_f1">_f1</map>
+      <map key="_f2">_f2</map>
+      <map key="_f3">_f3</map>
+      <map key="_f4">_f4</map>
+      <map key="v0">v0</map>
+      <map key="dtheta0">dtheta0</map>
+      <map key="x1">x1</map>
+      <map key="y1">y1</map>
+      <map key="theta0">theta0</map>
+      <map key="theta1">theta1</map>
+      <map key="clock">clock</map>
+      <map key="clockG">clockG</map>
+      <map key="dtheta1">dtheta1</map>
+      <map key="v1">v1</map>
+      <map key="beta01">beta01</map>
+      <map key="L1">0.3</map>
+      <map key="M0">0.1</map>
+    </bind>
+  </component>
+</sspaceex>
+

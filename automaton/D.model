@@ -1,0 +1,158 @@
+hybrid reachability
+{
+	 state var _f1, _f2, _f3, _f4, clockD, v0, dtheta0, x1, y1, theta0, theta1, clockG, dtheta1, v1, beta01, clock
+
+	setting
+	{
+		adaptive steps {min 1e-6, max 0.1}
+		time 100
+		remainder estimation 1e-1
+		identity precondition 
+		gnuplot octagon x1, y1
+		fixed orders 3
+		cutoff 1e-18
+		precision 100
+		output autosig
+		max jumps 600
+		print on
+	}
+
+	modes
+	{
+		_DNN1
+		{
+			nonpoly ode
+			{
+				clockD' = 0
+				theta1' = 0
+				theta0' = 0
+				_f2' = 0
+				_f1' = 0
+				clock' = 1
+				_f4' = 0
+				clockG' = 0
+				_f3' = 0
+				beta01' = 0
+				y1' = 0
+				x1' = 0
+				v0' = 0
+				v1' = 0
+				dtheta0' = 0
+				dtheta1' = 0
+			}
+			inv
+			{
+				clock <= 0
+			}
+		}
+		DNN1
+		{
+			nonpoly ode
+			{
+				clockD' = 0
+				theta1' = 0
+				theta0' = 0
+				_f2' = 0
+				_f1' = 0
+				clock' = 1
+				_f4' = 0
+				clockG' = 0
+				_f3' = 0
+				beta01' = 0
+				y1' = 0
+				x1' = 0
+				v0' = 0
+				v1' = 0
+				dtheta0' = 0
+				dtheta1' = 0
+			}
+			inv
+			{
+				clock <= 0
+			}
+		}
+		initD
+		{
+			nonpoly ode
+			{
+				clockD' = 1.0
+				theta1' = 0.0
+				theta0' = 0.0
+				_f2' = 0.0
+				_f1' = 0.0
+				clock' = 0.0
+				clockG' = 1.0
+				_f4' = 0.0
+				_f3' = 0.0
+				beta01' = 0.0
+				y1' = 0.0
+				x1' = 0.0
+				v0' = 0.0
+				v1' = 0.0
+				dtheta0' = 0.0
+				dtheta1' = 0.0
+			}
+			inv
+			{
+				clockD <= 0.0
+			}
+		}
+		environmentD
+		{
+			nonpoly ode
+			{
+				clockD' = 1.0
+				theta1' = v0 / 0.3 * sin(beta01) - 0.333333333333333 * cos(beta01) * dtheta0
+				theta0' = dtheta0
+				_f2' = 0.0
+				_f1' = 0.0
+				clock' = 0.0
+				clockG' = 1.0
+				_f4' = 0.0
+				_f3' = 0.0
+				beta01' = 0.0
+				y1' = v1 * sin(theta1)
+				x1' = v1 * cos(theta1)
+				v0' = 0.0
+				v1' = 0.0
+				dtheta0' = 0.0
+				dtheta1' = 0.0
+			}
+			inv
+			{
+				clockD <= 0.1
+			}
+		}
+	}
+	jumps
+	{
+		_DNN1 -> DNN1
+		guard { }
+		reset { clock' := 0 }
+		interval aggregation
+		initD -> _DNN1
+		guard { clockD = 0.0 }
+		reset { clockD' := 0.0 _f2' := y1 _f1' := x1 _f4' := theta1 _f3' := theta0 }
+		interval aggregation
+		DNN1 -> environmentD
+		guard { clockD = 0.0 }
+		reset { beta01' := theta0 - theta1 clockD' := 0.0 v0' := _f1 v1' := _f3 dtheta0' := _f2 }
+		interval aggregation
+		environmentD -> initD
+		guard { clockD = 0.1 }
+		reset { clockD' := 0.0 }
+		interval aggregation
+	}
+	init
+	{
+		initD
+		{
+			clock in [0, 0]
+			clockD in [0, 0]
+			x1 in [0, 0]
+			y1 in [0.25, 0.25]
+                        theta0 in [1.57, 1.57]
+                        theta1 in [1.57, 1.57]
+		}
+	}
+}
